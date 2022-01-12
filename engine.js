@@ -106,6 +106,7 @@ class BlockChain
     {
         this.pendingTransactions.push(new Transaction("System",rewardAddress,100));
         let block=new Block(Date.now(),this.pendingTransactions);
+        block.prevhash=this.getLatestBlock().hash;
         block.mineBlock(this.difficulty);
 
         console.log('Block mined successfully!!');
